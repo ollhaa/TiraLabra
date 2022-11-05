@@ -1,5 +1,5 @@
 # TiraLabra
-Tietorakenteiden ja algoritmien harjoitustyö
+Tietorakenteiden ja algoritmien harjoitustyö: Laajennettu KPS Markov-ketjuilla
 
 ### Dokumentit
 [Määrittelydokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/M%C3%A4%C3%A4rittelydokumentti.md)
