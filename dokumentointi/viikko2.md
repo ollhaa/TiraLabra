@@ -20,7 +20,7 @@ Epäselvyyttä on vieläkin testaamisessa ja (graaffisen) käyttöliittymän tot
 Markov-ketjun pituuden optimointi on seuraavaksi listalla yhdessä tiettyjen testien toteuttamisen kanssa. Koska koodissa on luultavasti vieläkin optimoitavaa, niin en toteuta vielä kovin suurta määrää testejä. 
 
 ### Tuntikirjanpito
-7.11.2022: 1 tunti: Koodin läpikäymistä
-10.11.2022: 1 tunti: Testaamiseen perehtymistä
-11.11.2022: 1 tunti: Testaamisen kokeilua
-12.11.2022 2 tuntia: Koodin siistimistä ja tietorakenteiden kertausta. Muutama toteutettu funktio. 
+7.11.2022: 1 tunti: Koodin läpikäymistä \
+10.11.2022: 1 tunti: Testaamiseen perehtymistä \
+11.11.2022: 1 tunti: Testaamisen kokeilua \
+12.11.2022 2 tuntia: Koodin siistimistä ja tietorakenteiden kertausta. Muutama toteutettu funktio. \ 
