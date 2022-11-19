@@ -21,4 +21,4 @@ Jatkan koodin optimointia ja varmistamista, että toimii oikein. Testaamista pit
 ### Tuntikirjanpito
 13.11.2022: Koodin selventämistä, 2 tuntia \
 15.11.2022: Testaamiseen perehtymistä, 2 tuntia \
-19.11.2022: Koodin uudelleen kirjoittamista, 4 tuntia \
+19.11.2022: Koodin uudelleen kirjoittamista, 4 tuntia 
