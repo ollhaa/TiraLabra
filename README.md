@@ -3,6 +3,7 @@ Tietorakenteiden ja algoritmien harjoitustyö: Laajennettu KPS Markov-ketjuilla
 
 ### Dokumentit
 [Määrittelydokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/M%C3%A4%C3%A4rittelydokumentti.md)
+[Testausdokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Testausdokumentti.md)
 
 
 ### Viikkopalautukset
