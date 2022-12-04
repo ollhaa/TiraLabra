@@ -1,22 +1,33 @@
-import src.Rps as Rps
+import Rps
 class rpsApp:
-
+#Alustus
     def __init__(self):
         self.peli = Rps.Rps()
-
+        self.valinnatKokonimi = {"K": "Kivi", "P": "Paperi", "S":"Sakset"}
+#vastustajan valinta
     def aloitusvalinnat(self):
         print("Valitse vastustaja! ")
-        print("1 - Rose Random")
-        print("2 - Mark Markov(2)")
-        print("3 - Multi AI")
-
+        print("1 - Sari Satunnainen") #Satunnaisvalinta
+        print("2 - Marko Markov(2)") #Toisen asteen Markov
+        print("3 - Tekoäly") #Varsinainen tekoäly
+#pelaajan valinnat pelissä
     def ohje(self):
         print("Vaihtoehdot:")
-        print("R - Rock ")
-        print("P - Paper ")
-        print("S - Scissors ")
+        print("K - Kivi ")
+        print("P - Paperi ")
+        print("S - Sakset ")
         print("Q - Lopetus ")
 
+    def pelinPaattyminen(self):
+        print("Peli on päättynyt!")
+        yv = self.peli.yhteenveto()
+        osuusPisteita = yv[3]/(yv[3]+yv[4])*100
+        print(f"Pelatut kierrokset: {yv[5]}")
+        print(f"Voittamasi kierrosten lukumäärä: {yv[3]}")
+        print(f"{yv[6]}:n voittamien kierrosten lukumäärä: {yv[4]}")
+        print(f"Sait annetuista pisteitä {osuusPisteita:.2f} %")
+
+#pelin käynnistäminen
     def aloita(self):
         while True:
             self.aloitusvalinnat()
@@ -30,20 +41,25 @@ class rpsApp:
             print("")
             self.ohje()
             valinta = input("Anna valinta: \n")
+            valinta = valinta.capitalize()
             if valinta =="Q":
+                self.pelinPaattyminen()
                 break
-            elif valinta =="R" or valinta =="P" or valinta =="S":
+            elif valinta =="K" or valinta =="P" or valinta =="S":
                 self.peli.pelaa(valinta)
-                tilanne = self.peli.yhteenveto()
-                print(f"Valintasi: {valinta}")
+                #print(f"Valintasi oli: {valinta}")
                 yv = self.peli.yhteenveto()
-                print(f"Valintasi oli: {yv[0]}, Pistetilanne: (sinä:) {yv[1]} - (tietokone:) {yv[2]} Pelattuja kierroksia: {yv[3]}")
-
+                
+                print(f"Valintasi oli: {self.valinnatKokonimi[yv[0]]} ja tietokoneen valinta oli {self.valinnatKokonimi[yv[1]]}...") 
+                if yv[2]: print("...Voitit!")
+                elif yv[2]==False: print("...Hävisit!") 
+                else: print("...Tasapeli") 
+                print(f"Pistetilanne: Sinä: {yv[3]} - {yv[6]}: {yv[4]}. Pelattuja kierroksia nyt: {yv[5]}")
             else:
-
                 print("Et valinnut mitään")
                 
 
 if __name__ == "__main__":
     uusi = rpsApp()
     uusi.aloita()
+

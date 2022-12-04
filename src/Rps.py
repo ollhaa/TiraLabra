@@ -1,36 +1,37 @@
 import random
-from collections import deque 
 import Markov as Markov
+import MultiAI as MultiAI
 
-
+#alustus
 class Rps:
     def __init__(self):
         self.nimi =""
-        self.tehdyt_valinnat = []
-        self.tk_valinnat = []
-        self.kierrokset = 0
-        self.voitto = False
-        self.vaihtoehdot = ["R", "P", "S"]
+        self.pelaajanValinnat = []
+        self.tietokoneenValinnat = []
+        self.pelatutKierrokset = 0
+        self.pelaajanVoitto = False
+        self.vaihtoehdot = ["K", "P", "S"]
         self.historia = {}
-        self.pelaaja =0
-        self.tietokone =0
-        #self.markov = None
+        self.pelaajanPisteet =0
+        self.tietokoneenPisteet =0
+        self.markov = None
 
+#luonti ja historia
     def alusta(self, vastustaja:str):
         if vastustaja == "1":
-            self.nimi = "Rose Random"
+            self.nimi = "Sari Satunnainen"
         elif vastustaja =="2":
-            self.nimi="Mark Markov2"
-            #self.markov = Markov.Markov()
+            self.nimi="Marko Markov2"
+            self.markov = Markov.Markov()
         else:
-            self.nimi = "Multi Markov"
-            #self.markov= Markov.Markov()
+            self.nimi = "Tekoäly"
+            self.markov= MultiAI.MultiAI()
         
         def create(n):
             if n ==1:
-                return ["R", "P", "S"]
+                return ["K", "P", "S"]
             else:
-                return [x + sana for x in ["R", "P", "S"] for sana in create(n-1)]
+                return [x + sana for x in ["K", "P", "S"] for sana in create(n-1)]
 
         permutaatiot =[]
         for i in range(1,4):
@@ -47,22 +48,21 @@ class Rps:
 
     def getTietokoneenPisteet(self):
         return self.tietokone
+#pelin eteneminen
+    def pelaa(self, valinta):  
+        self.pelatutKierrokset +=1
 
-    def pelaa(self, valinta):
-        
-        self.kierrokset +=1
-
-        if self.kierrokset <5 or self.nimi =="Rose Random":
+        if self.pelatutKierrokset <5 or self.nimi =="Sari Satunnainen":
             vastaus = random.choice(self.vaihtoehdot)
         else: 
-            vastaus = Markov.Markov().Answer(self.historia, self.tehdyt_valinnat, self.nimi, self.kierrokset, valinta)
+            vastaus = self.markov.Answer(self.historia, self.pelaajanValinnat, self.pelatutKierrokset, valinta)
 
-        if self.kierrokset >=3:
+        if self.pelatutKierrokset >=3:
             size = 3 
         else: 
-            size = self.kierrokset
+            size = self.pelatutKierrokset
 
-        edelliset_3 = self.tehdyt_valinnat[-size:]
+        edelliset_3 = self.pelaajanValinnat[-size:]
         #print(f"edelliset3: {edelliset_3}")
 
         def solver(lista, n, valinta):
@@ -70,7 +70,7 @@ class Rps:
                 b= lista[i:n]
                 b= "".join(b)
                 print(f"b: {b}")
-                indeksi = {"R":0, "P":1, "S":2}
+                indeksi = {"K":0, "P":1, "S":2}
                 muutos = indeksi[valinta]
                 apulista = self.historia[b] #TÄMÄ!
                 #print(f"apulista: {apulista}")
@@ -81,23 +81,27 @@ class Rps:
         solver(edelliset_3,size, valinta)        
         #print(self.historia)
 
-        self.tehdyt_valinnat.append(valinta)
+        self.pelaajanValinnat.append(valinta)
+        self.tietokoneenValinnat.append(vastaus)
 
-        if (valinta =="R" and vastaus == "P") or (valinta =="P" and vastaus == "S") or (valinta =="S" and vastaus == "R"):
-            self.voitto = False
-            self.tietokone +=1
+        if (valinta =="K" and vastaus == "P") or (valinta =="P" and vastaus == "S") or (valinta =="S" and vastaus == "K"):
+            self.pelaajanVoitto = False
+            self.tietokoneenPisteet +=1
         elif valinta == vastaus:
-            self.voitto = None
+            self.pelaajanVoitto = None
         else:
-            self.voitto =True
-            self.pelaaja +=1
-
+            self.pelaajanVoitto =True
+            self.pelaajanPisteet +=1
+#palauttaa käyttöliittymälle tietoja pelistä
     def yhteenveto(self):
-        a = self.voitto
-        b = self.pelaaja
-        c = self.tietokone
-        d = self.kierrokset
+        a = self.pelaajanValinnat[-1]
+        b = self.tietokoneenValinnat[-1]
+        c = self.pelaajanVoitto
+        d = self.pelaajanPisteet
+        e = self.tietokoneenPisteet
+        f = self.pelatutKierrokset
+        g = self.nimi
         
-        return (a,b,c,d)
+        return (a,b,c,d,e,f,g)
 
 
