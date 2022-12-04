@@ -17,6 +17,7 @@ Peli eteneminen tapahtuu metodin "pelaa", avulla. Jos vastustajaksi on valittu:
  - **"Tekoäly"** palauttaa vastauksen MultiAI-luokasta, jossa taustalla pelataan kuutta eri algoritmia. Tällöin self.markoviksi on asetettu luokka MultiAI.
  
 Markov-luokassa palautetaan siis vastaus perustuen kahteen viimeiseen valintaan. Markov-luokan Answer-metodille annetaan syötteena pelissä mm. pelin historia ja edellisen valinnat, jotta algoritmi voidaan toteuttaa. Historia on toteutettu sanakirjana, jossa eri mittaisille (1-3) yhdistelmille (esim. "KPS" muodostuu lista tätä yhdistelmää seuraavan valinnan frekvensseistä. Esim. [0,3,1], jossa järjestys K-P-S - eli yleisin on P). 
+
 Koska tämä luokka ei vaadi kierrosten lukumäärätietoa tai pelattua valintaa, niin poistetaan alussa nämä. Nämä ovat siksi, että Answer toimii myös luokassa MultiAI, jossa niitä tarvitaan. Eli molempien luokkien metodi on sama, mutta pelattava (perustuen palaajan alussa antamaan valintaan) asetetaan self.markoviksi alussa.
 MultiAI-luokka on pelin varsinainen tekoäly. Kun luokka luodaan, niin olioparametreiksi tulee mm. lista listoista, joiden avulla eri algoritmien menetysttä voidaan seurata. Tätäkin käytetään (kuten yllä on mainittu) Answer-metodin kautta. Nyt tarvitaan kaikki parametrit, koska mm. kierrosten lukumäärätieto tarvitaan MultiAI-luokan palauttaman algoritmin valintaan. Eli pelataan taustalla kaikki kuusi algoritmia, mutta "paras" palauttaa vastauksen peliin.  Luokassa pelattavat kuusi algoritmia ovat:
  - **Satunnaisvalinta.**
