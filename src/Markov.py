@@ -1,22 +1,38 @@
 import random
 
-
 class Markov:
-    #Alustus
+    '''Luokka, joka pelaa "Marko Markov2" -vastustajaa. Eli tässä siis toteutettu kahden asteen Markov-ketju. 
+
+    Attributes:
+        voittava: Sanakirja, joka palauttaa valinnat, jotka voittavat annetun valinnan.0=K, 1=P, 2=S, 3=L ja 4=C. Ja esim. Kiven voittavat valinnat ovat P ja C. 
+    '''
     def __init__(self):
-        self.voittava = {0:"P", 1:"S", 2:"R"} # voittava valinta
-        self.pisteet = {"R":{"R":0, "P":1, "S":0}, "P":{"R":0, "P":0, "S":1}, "S":{"R":1, "P":0, "S":0}} #pisteet valintojen perusteella eri Markoveille
+        '''Luokan konstruktori, joka luo uuden Markovin.
+
+        '''
+        self.voittava = {0:["P", "C"], 1:["S", "L"], 2:["K", "C"], 3:["K", "S"], 4:["P","L"]} 
+         
        
-    #Palauttaa tietokoneen vastauksen  
-    def Answer(self, historia, edelliset, kierrokset, valinta):
-        del kierrokset, valinta #poistetaan ne parametrit, joita ei käytetä tässä
+    def Answer(self, historia:dict, edelliset:list, kierrokset:int, valinta:str):
+        '''Palauttaa tietokoneen vastauksen.
 
-        edelliset2 = edelliset[-2:] #edelliset kaksi pelaajan valintaa
-        edelliset2 = "".join(edelliset2) #yhdistetään nämä merkkijonoksi
+        Args:
+            historia: Sanakirja, josta nähdään tehdyt valinnat ja näitä seurannut valintojen frekvenssilista.
+            edelliset: Pelaajan edelliset valinnat listana.
+            kierrokset: Kierrosten lkm. Poistetaan tässä luokassa.
+            valinta: Pelaajan edellinen valinta.
 
-        apulista = historia[edelliset2] #muodostetaan apulista, jossa edellisen kahden frekfenssijakauma
-        indeksi = apulista.index(max(apulista)) #suurin frekfenssi
-        ans =  self.voittava[indeksi] #voittava valinta tähän suurimpaan frekfenssiin
+        Returns:
+            Palauttaa ans, joka on tietokoneen valinta pelissä.
+        '''
+        del kierrokset, valinta 
+
+        edelliset2 = edelliset[-2:] 
+        edelliset2 = "".join(edelliset2) 
+
+        apulista = historia[edelliset2] 
+        indeksi = apulista.index(max(apulista)) 
+        ans =  random.choice(self.voittava[indeksi]) 
 
         return ans
           
