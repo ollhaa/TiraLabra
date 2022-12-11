@@ -12,4 +12,5 @@ Tietorakenteiden ja algoritmien harjoitustyö: Laajennettu KPS Markov-ketjuilla
 [2. viikon palautus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/viikko2.md) \
 [3. viikon palautus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/viikko3.md) \
 [4. viikon palautus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/viikko4.md) \
-[5. viikon palautus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/viikko5.md)
+[5. viikon palautus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/viikko5.md) \
+[6. viikon palautus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/viikko6.md)
