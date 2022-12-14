@@ -6,7 +6,7 @@ Laajennetun Kivi-Paperit-Sakset -peli, jossa mukana myös Lisko ja Spock*. Tarko
 * Miten tietokone löytää säännönmukaisuuksia ihmisen pelitavasta?
 * Miten tietokone sopeutuu, jos pelaaja muuttaa tapaansa pelata?
 
-Luon siis peli, jossa on mahdollista pelata kolmea vastustajaa vastaan, joista tekoäly on tämän kurssin kannalta olennaisin. Tekoäly pelaa useampaa stretegiaa taustalla, ja valitsee säännöllisin väliajoin edellisten kierrosten perusteella sen algoritmin, jota pelataan seuraavat kierrokset. 
+Luon siis peli, jossa on mahdollista pelata kolmea erilaista vastustajaa vastaan, joista tekoäly on tämän kurssin kannalta olennaisin. Tekoäly pelaa useampaa stretegiaa taustalla, ja valitsee säännöllisin väliajoin edellisten kierrosten perusteella sen algoritmin, jota pelataan seuraavat kierrokset. 
 
 *Laajennetun pelin säännöt löytyvät dokumentin lopusta.
 
@@ -19,7 +19,7 @@ Tietorakenne määräytyy tavoitteena olevan algoritmin perusteella. Markov-ketj
 
 
 ### Ongelma
-Ongelma, jota pyrin ratkaisemaan, on vastustajan edellisten valintojen perusteella tehtävä valinta. Tavoitteena on siis löytää säännömukaisuuksia pelaajan pelistä ja sopeutua, jos käyttäytyminen muuttuu. Näitä valintoja varten minun pitää pitää muistissa pelaajan valinnat. Lista one helppokäyttöinen ja siiehn saa tallenettua järjestyksen. Jonon avulla voin lisätä ja poistaa myös alkiota näppärästi. Sanakirjan avulla on helppo toteuttaa haku ja tallennus, jossa on jokin määräävä asia (=avain).
+Ongelma, jota pyrin ratkaisemaan, on vastustajan edellisten valintojen perusteella tehtävä valinta. Tavoitteena on siis löytää säännömukaisuuksia pelaajan pelistä ja sopeutua, jos käyttäytyminen muuttuu. Näitä valintoja varten minun pitää pitää muistissa pelaajan valinnat. Lista one helppokäyttöinen ja siihen saa tallenettua järjestyksen. Jonon avulla voin lisätä ja poistaa myös alkiota näppärästi. Sanakirjan avulla on helppo toteuttaa haku ja tallennus, jossa on jokin määräävä asia (=avain).
 
 
 ### Syötteet
@@ -27,7 +27,7 @@ Syötteinä pelaaja antaa pelattavan vaihtoehdon, joka on tyyppiä str. Pelaajan
 
 
 ### Aika- ja tilavaativuudet
-Koska syötteitä annetaan yksi kerrallaan ja kierrosten lukumäärä on melko pieni, niin aikavaativuus ei todennäköisesti ole kriittinen. Pyrin kuitenki välttämään aikavaativuutta O(n³) ja sitä suurempia aikavaativuuksia. Tilavaativuutta en ole vielä pohtinut. Itse asiassa tilavaativuus ei ole ollut tähän asti kovin paljon esillä käymilläni kursseilla. 
+Koska syötteitä annetaan yksi kerrallaan ja kierrosten lukumäärä on melko pieni, niin aikavaativuus ei ole  kriittinen. Pyrin kuitenki välttämään aikavaativuutta O(n³) ja sitä suurempia aikavaativuuksia. Tilavaativuutta en ole vielä pohtinut. Itse asiassa tilavaativuus ei ole ollut tähän asti kovin paljon esillä käymilläni kursseilla. 
 
 
 ### Lähteet
