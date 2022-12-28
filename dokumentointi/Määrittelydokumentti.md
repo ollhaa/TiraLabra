@@ -11,11 +11,11 @@ Luon siis peli, jossa on mahdollista pelata kolmea erilaista vastustajaa vastaan
 *Laajennetun pelin säännöt löytyvät dokumentin lopusta.
 
 ### Valitut algoritmit ja tietorakenteet
-Eräs tapa löytää säännönmukaisuuksia ihmisen pelitavasta on Markov-ketjut. Markov-ketjussa uusi tila riippuu vain edellisestä tilasta. Mikäli pelaajalla on taipumis pelata tietyn valinnan (esim. "kivi") jälkeen aina esimerkiksi jotain tiettyä toista valintaa (esim. "paperi"), niin Markov-ketjuilla päästään tähän hyvin kiinni. Ketjun pituus on olla myös suurempi kuin yksi, jolloin huomioidaan useampi kuin yksi edellinen valinta. 
+Eräs tapa löytää säännönmukaisuuksia ihmisen pelitavasta on Markov-ketjut. Markov-ketjussa uusi tila riippuu vain edellisestä tilasta. Mikäli pelaajalla on taipumus pelata tietyn valinnan (esim. "kivi") jälkeen aina esimerkiksi jotain tiettyä toista valintaa (esim. "paperi"), niin Markov-ketjuilla päästään tähän hyvin kiinni. Ketjun pituus on olla myös suurempi kuin yksi, jolloin huomioidaan useampi kuin yksi edellinen valinta. 
 
 Markov-ketjua varten tarvitsen tietorakenteen, johon voin tallentaa pelaajan tekemiä valintoja ja tähän yhdistäen tiedot, mitä pelaaja on valinnan (tai valintojen) jälkeen pelannut. Koska ihminen ei todennäköisesti muista kovin pitkiä valintasarjoja, niin valitsen Markov-ketjun pituudeksi yksi, kaksi ja kolme. 
 
-Tietorakenne määräytyy tavoitteena olevan algoritmin perusteella. Markov-ketjujen kanssa valintani on sanakirja, jossa avaimia ovat yksittäiset vaihtoehdot pelissä ja näiden kahden ja kolmen pituiset permutaatiot. Tällöin laajennetussa viiden vaihtoehdon pelissä sanakirjaan tulee yhteensä 5+25+125 avainta, eli yhteensä 155 avainta. Sanakirjassa jokaisen avaimen arvona on lista, johon tallennetaan kaikkien valintojen frekvenssit (avaimena olevan ketjun jälkeen). Näin tiedossa on valinta, joka on yleisin ja jota vastaan voidaan pelata. Toinen vaihtoehto olisi tähän huomioida nämä todennäköisyyksinä.
+Tietorakenne määräytyy tavoitteena olevan algoritmin perusteella. Markov-ketjujen kanssa valintani on sanakirja, jossa avaimia ovat yksittäiset vaihtoehdot pelissä ja näiden kahden ja kolmen pituiset permutaatiot. Tällöin laajennetussa viiden vaihtoehdon pelissä sanakirjaan tulee yhteensä 5+25+125 avainta, eli yhteensä 155 avainta. Sanakirjassa jokaisen avaimen arvona on lista, johon tallennetaan kaikkien valintojen frekvenssit (avaimena olevan ketjun jälkeen). Näin tiedossa on eri valintojen yleisyys edellisen / edellisten valintojen jälkeen ja näistä saadaan todennäköisyydet.
 
 
 ### Ongelma
