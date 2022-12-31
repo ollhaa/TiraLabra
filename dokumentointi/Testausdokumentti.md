@@ -41,7 +41,7 @@ Pelaajan pisteet: 33 ja tietokoneen 46. Yhteensä 100 kierrosta. Pelaajan voitto
 Pelaajan pisteet: 37 ja tietokoneen 40. Yhteensä 100 kierrosta. Pelaajan voittoprosentti 48,05.
 
 **4. Pelataan ensin kymmenen kertaa KPPS, sitten kymmenen kertaa LC ja lopuksi taas kymmenen kertaa KPPS** \
-Pelaajan pisteet: 37 ja tietokoneen 40. Yhteensä 100 kierrosta. Pelaajan voittoprosentti 48,05.
+Pelaajan pisteet: 16 ja tietokoneen 69. Yhteensä 100 kierrosta. Pelaajan voittoprosentti 18,82.
 
 **5. Siskon poika, alle kymmenen vuotta** \
 Pelaajan pisteet: 31 ja tietokoneen 47. Yhteensä 100 kierrosta. Pelaajan voittoprosentti 39,74. \
