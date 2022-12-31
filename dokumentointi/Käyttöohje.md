@@ -28,6 +28,8 @@ Tämän jälkeen valitaan pelattava siirto:
 Jokaiselle valinnalle on kaksi voittavaa siirtoa ja vastaavasti jokainen valinta voittaa kaksi muuta siirtoa. Esim. Kivi voittaa Sakset ja \
 Liskon, mutta häviää Paperille ja Spockille.
 
+![Siirrot](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Rock_paper_scissors_lizard_spock_rules.png)
+
 [Pelin esittely tarkemmin](https://www.youtube.com/watch?v=x5Q6-wMx-K8)
 
   * Komennolla `q` peli päättyy ja ohjelma tulostaa yhteenvedon pelistä.
