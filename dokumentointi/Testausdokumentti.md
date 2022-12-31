@@ -13,6 +13,9 @@ Testataan palauttaako luokan answer-metodi oikean valinnan. Tätä varten on val
 
 **Tekoaly** \
 Testataan pelattavan algoritmin asettamista ja saamista. Tätä tarvitaan varsinaisten algoritmien testaamiseen. Pelattavista algoritmeista testataan Markov-ketjuja pituuksilla 1-3. 
+
+**Muuta** \
+Ohjelman rakenteesta ja satunnaisuudesta johtuen testausta on tehty aputulosteiden avulla melko paljon. Esimerkiksi luokkia peliApp ja pelilogiikka on testattu tällä tavoin, kuten myös Tekoaly-luokan algoritmien vertailua. 
  
 ### Suorituskyky
 Suorituskykyä on testattu "manuaalisesti" eri pelattavien vastustajien osalta kierrosten lukunmäärän ollessa 20, 100 tai 500 (vain Tekoaly). Testataan siis pelaa-funktion keskimääräistä aikaa. Teoriassa keskimääräisen ajan pitäisi kasvaa, kun valintoja tallennetaan enemmän ja luokkien keskimääräisen ajan pitäisi olla järjestyksessä satunnainen (=Sari Satunnainen) < Markov (= Marko Markov2) < Tekoaly (=Tekoaly). 
