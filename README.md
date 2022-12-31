@@ -1,10 +1,11 @@
 # TiraLabra
-Tietorakenteiden ja algoritmien harjoitustyö: Laajennettu KPS Markov-ketjuilla
+Tietorakenteiden ja algoritmien harjoitustyö: Laajennettu KPS, jossa mm. Markov-ketjuja.
 
 ### Dokumentit
 [Määrittelydokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/M%C3%A4%C3%A4rittelydokumentti.md) \
-[Testausdokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Testausdokumentti.md) \
-[Toteutusdokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Toteutusdokumentti.md)
+[Käyttöohje](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/K%C3%A4ytt%C3%B6ohje.md) \
+[Toteutusdokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Toteutusdokumentti.md) \
+[Testausdokumentti](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Testausdokumentti.md)
 
 
 ### Viikkopalautukset
