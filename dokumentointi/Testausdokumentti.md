@@ -3,7 +3,7 @@
 ### Yksikkötestaus
 Yksikkötestit on suoritettu unittest-kirjaston avulla. Testit löytyvät tests-kansiosta. Testattavia luokkia ovat Markov ja Tekoaly. Käyttöliittymää ja pelilogiikkaa ei testata. 
 
-Virtuaaliympäristössä testit voidaan suorittaa komennolla `pytest src`, kun ollaan hakemistossa sovellus. 
+Linux-ympäristössä testit voidaan suorittaa komennolla `poetry run invoke testcov`. Tämän jälkeen testikattavuudesta kertova raportti tallentuu kohteeseen `sovellus/htmlcov/index.html` 
 
 ![Kuva: Testikattavuus](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/coverage.jpg)
 
