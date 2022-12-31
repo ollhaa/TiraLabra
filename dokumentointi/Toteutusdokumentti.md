@@ -14,25 +14,30 @@ Varsinainen pelin logiikka toteutetaan luokassa pelilogiikka. Kun peli luodaan, 
 
 Peli eteneminen tapahtuu metodin "pelaa", avulla. Jos vastustajaksi on valittu: 
  - **"Sari Satunnainen"**, niin vastaus on satunnaisvalinta annetuista siirroista.
- - **"Marko Markov2"**, niin self.markoviksi on asetettu luokka Markov. Tällöin Answer palauttaa kahteen viimeiseen siirtoo perustuvan valinnan.
+ - **"Marko Markov2"**, niin self.markoviksi on asetettu luokka Markov. Tällöin answer palauttaa kahteen viimeiseen siirtoo perustuvan valinnan.
  - **"Tekoäly"** palauttaa vastauksen Tekoaly-luokasta, jossa taustalla pelataan seitsemää eri algoritmia. Tällöin self.markoviksi on asetettu luokan Tekoaly-olio.
  
 ### Operaatioiden toteutus
 
-Markov-luokassa palautetaan siis vastaus perustuen kahteen viimeiseen valintaan. Markov-luokan Answer-metodille annetaan syötteena pelissä mm. pelin historia ja edellisen valinnat, jotta algoritmi voidaan toteuttaa. Historia on toteutettu sanakirjana, jossa eri mittaisille (1-3) yhdistelmille (esim. "KPS" muodostuu lista tätä yhdistelmää seuraavan valinnan frekvensseistä. Esim. [1,3,1,1,1], jossa järjestys K-P-S-L-C. Edellisen listan todennäköisyydet ovat [1/7, 3/7, 1/7, 1/7, 1/7] ja näistä arvontaan tietokoneen valinta näillä todennäköisyyksillä. Frekvenssit on alustettu listana [1,1,1,1,1], jollon aluksi kaikkien valintojen todennäköisyys on 0.2.  
+Markov-luokassa palautetaan siis vastaus perustuen kahteen viimeiseen valintaan. Markov-luokan Answer-metodille annetaan syötteena pelissä mm. pelin historia ja edellisen valinnat, jotta algoritmi voidaan toteuttaa. Historia on toteutettu sanakirjana, jossa eri mittaisille (1-3) yhdistelmille (esim. "KPS" muodostuu lista tätä yhdistelmää seuraavan valinnan frekvensseistä. Esim. [1,3,1,1,1], jossa järjestys K-P-S-L-C. Edellisen listan todennäköisyydet ovat [1/7, 3/7, 1/7, 1/7, 1/7] ja näistä arvontaan tietokoneen valinta näillä todennäköisyyksillä. Frekvenssit on alustettu listana [1,1,1,1,1], jollon aluksi kaikkien valintojen todennäköisyys on 0.2. Koska jokaiseen pelaajan valintaan on kaksi voittavaa vaihtoehtoa, niin palautettava vastaus arvotaan näistä kahdesta mahdollisesta.
 
-Koska Markov-luokka ei vaadi kierrosten lukumäärätietoa tai pelattua valintaa, niin poistetaan alussa nämä. Nämä ovat siksi, että Answer toimii myös luokassa MultiAI, jossa niitä tarvitaan. Eli molempien luokkien metodi on sama, mutta pelattava (perustuen palaajan alussa antamaan valintaan) asetetaan self.markoviksi alussa.
-Tekoaly-luokka on pelin varsinainen tekoäly. Kun luokka luodaan, niin olioparametreiksi tulee mm. lista listoista, joiden avulla eri algoritmien menetysttä voidaan seurata. Tätäkin käytetään (kuten yllä on mainittu) Answer-metodin kautta. Nyt tarvitaan kaikki parametrit, koska mm. kierrosten lukumäärätieto tarvitaan MultiAI-luokan palauttaman algoritmin valintaan. Eli pelataan taustalla kaikki seitsemän algoritmia, mutta "paras" palauttaa vastauksen peliin.  Luokassa pelattavat seitsemän algoritmia ovat:
+Koska Markov-luokka ei vaadi kierrosten lukumäärätietoa tai pelattua valintaa, niin poistetaan alussa nämä. Nämä ovat siksi, että answer toimii myös luokassa Tekoaly, jossa niitä tarvitaan. Eli molempien luokkien metodi on sama, mutta pelattava (perustuen palaajan alussa antamaan valintaan) asetetaan self.markoviksi alussa.
+
+Tekoaly-luokka on pelin varsinainen tekoäly. Kun luokka luodaan, niin olioparametreiksi tulee mm. lista listoista, joiden avulla eri algoritmien menetysttä voidaan seurata. Tätäkin käytetään (kuten yllä on mainittu) answer-metodin kautta. Nyt tarvitaan kaikki parametrit, koska mm. kierrosten lukumäärätieto tarvitaan Tekoaly-luokan palauttaman algoritmin valintaan. Eli pelataan taustalla kaikki seitsemän algoritmia, mutta "paras" palauttaa vastauksen peliin.  Luokassa pelattavat seitsemän algoritmia ovat:
+
  - **Satunnaisvalinta.**
  - **Markov-ketjut pituuksilla 1-3.**
  - **Pelattavan algoritmin viimeisen valinnan voittava algoritmi.**
  - **Algoritmi, joka palauttaa pelaajan viimeisen valinnan**
  - **Algoritmi, joka palauttaa voittavan siirron sille valinnalle, jonka pelaamisesta on pisin aika.**
  
+Markov-ketjut toimivat toimivat Tekoaly-luokassa samalla tavalla kuin Markov-luokassa.
 
 ### Suorituskyky
+
+Tästä enemmän [Testausdokumentissa](https://github.com/ollhaa/TiraLabra/blob/main/dokumentointi/Testausdokumentti.md). 
 
 
 ### Työn mahdolliset puutteet ja parannusehdotukset
 
-Luokassa tekoäly voisi olla vieläkin useampia vaihtoehtoja, joita pelata. Sovellukseen olisi voinut tehdä myös graafisen käyttöliittymän. Sovelluksessa  olisi voinut olla vielä enemmän testausta ja koodia hieman selvempää.
+Luokassa tekoäly voisi olla vieläkin useampia vaihtoehtoja, joita pelata. Voittavien algoritmien löytäminen löytäminen ei ole vain tietojenkäsittelytiedettä vaan myös käyttäytymistieteitä tässä tapauksessa. Sovellukseen olisi voinut tehdä myös graafisen käyttöliittymän. Sovelluksessa  olisi voinut olla vielä enemmän testausta ja koodia hieman selvempää. Pohdittavan arvoista olisi myös ollut, että olisiko ensin pitänyt kirjoittaa testejä, joita olisi halunnut testata, ja vasta tämän jälkeen toteuttaa sovellusta. 
